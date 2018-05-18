@@ -12,4 +12,4 @@ The Art Exchange platform between students and enterprises
 
 <br>
 项目原型文件:   
-[原型文件](\网站原型文件.mx)
+[原型文件](https://github.com/syt-honey/mobileMuseumOfArtWebsite/blob/master/%E7%BD%91%E7%AB%99%E5%8E%9F%E5%9E%8B%E6%96%87%E4%BB%B6.mx)
