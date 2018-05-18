@@ -8,8 +8,8 @@ The Art Exchange platform between students and enterprises
 
 <br>
 项目思维导图：   
-![思维导图](\mobileMuseum\picture\网站思维导图.jpg)
+![思维导图](\picture\网站思维导图.jpg)
 
 <br>
 项目原型文件:   
-[原型文件](\mobileMuseum\网站原型文件.mx)
+[原型文件](\网站原型文件.mx)
