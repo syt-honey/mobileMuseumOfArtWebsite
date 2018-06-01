@@ -13,7 +13,7 @@ The Art Exchange platform between students and enterprises
 <br>  
 **后端架构图：**   
 
-[后端架构图](https://github.com/syt-honey/mobileMuseumOfArtWebsite/blob/master/picture/%E5%90%8E%E7%AB%AF%E7%AE%80%E6%98%93%E6%9E%B6%E6%9E%84%E5%9B%BE.png)
+![后端架构图](https://github.com/syt-honey/mobileMuseumOfArtWebsite/blob/master/picture/%E5%90%8E%E7%AB%AF%E7%AE%80%E6%98%93%E6%9E%B6%E6%9E%84%E5%9B%BE.png)
 
 <br>  
 **原型文件：**   
