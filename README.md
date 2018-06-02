@@ -10,4 +10,4 @@ The Art Exchange platform between students and enterprises
 **思维导图**   
 ![思维导图](https://github.com/syt-honey/mobileMuseumOfArtWebsite/blob/master/picture/%E7%BD%91%E7%AB%99%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.jpeg)  
 
-更详细信息，请查看[项目跟进文档]()
+更详细信息，请查看[项目跟进文档](https://github.com/syt-honey/mobileMuseumOfArtWebsite/blob/master/%E9%A1%B9%E7%9B%AE%E8%B7%9F%E8%BF%9B%E6%96%87%E6%A1%A3.md)
