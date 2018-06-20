@@ -9,11 +9,11 @@ The Art Exchange platform between students and enterprises
 
 <br>  
 ### 项目工具版本   
-ide: idea 2018   
-maven: 3.5.3     
-jdk: 1.8.0_171    
-Tomcat: 9     
-MYSQL: 5.7.22
+* ide: idea 2018   
+* maven: 3.5.3     
+* jdk: 1.8.0_171    
+* Tomcat: 9     
+* MYSQL: 5.7.22
 
 
 
