@@ -3,6 +3,12 @@
 /* Created on:     2018/6/22 10:08:47                           */
 /*==============================================================*/
 
+/*==============================================================*/
+/* Database：artMuseum                                        */
+/*==============================================================*/
+create Database if not exists artMuseum character set utf8;
+use artMuseum
+
 
 drop table if exists administrator;
 
@@ -500,4 +506,3 @@ create table works_complaint
 );
 
 alter table works_complaint comment '作品申诉表';
-
