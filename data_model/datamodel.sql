@@ -1,9 +1,15 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2018/6/11 17:03:16                           */
+/* Created on:     2018/6/22 10:08:47                           */
 /*==============================================================*/
 
-/*
+/*==============================================================*/
+/* Database：artMuseum                                        */
+/*==============================================================*/
+create Database if not exists artMuseum character set utf8;
+use artMuseum
+
+
 drop table if exists administrator;
 
 drop table if exists bid;
@@ -57,7 +63,6 @@ drop table if exists works_attachment;
 drop table if exists works_comment;
 
 drop table if exists works_complaint;
-*/
 
 /*==============================================================*/
 /* Table: administrator                                         */
@@ -69,8 +74,8 @@ create table administrator
    hashed_pwd           varchar(32) comment '密码',
    salt                 varchar(32) comment '盐',
    bank_account         varchar(50) comment '银行卡号',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    primary key (id)
 );
 
@@ -83,8 +88,8 @@ create table bid
 (
    project_id           bigint unsigned not null comment '项目id',
    works_id             bigint unsigned not null comment '作品id',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间'
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间'
 );
 
 alter table bid comment '投标表';
@@ -103,11 +108,11 @@ create table business
    representation_idcard varchar(50) comment '合法代表人身份证号码',
    email                varchar(50) comment '邮箱',
    tel                  varchar(50) comment '联系方式',
-   introduction         varchar(300) null comment '简介',
-   login_time           timestamp comment '最近登入时间',
-   is_verified          tinyint not null default 0 comment '是否通过审核',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   introduction         varchar(300) comment '简介',
+   login_time           datetime comment '最近登入时间',
+   is_verified          tinyint unsigned not null default 0 comment '是否通过审核',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    follower_count       int comment '粉丝人数',
    primary key (id)
 );
@@ -124,8 +129,8 @@ create table business_attachment
    attachment_path      varchar(300) comment '附件路径',
    attachment_size      decimal comment '附件大小',
    business_id          bigint unsigned comment '企业id',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    primary key (id)
 );
 
@@ -141,9 +146,9 @@ create table complaint_attachment
    attachment_path      varchar(300) comment '附件路径',
    attachment_size      decimal comment '附件大小',
    complaint_id         bigint unsigned comment '申诉id',
-   complaint_type		tinyint unsigned comment '申诉的类型(订单：0 or项目：1 or作品：2)',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   complaint_type       tinyint unsigned comment '申诉的类型(订单：0 or项目：1 or作品：2)',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    primary key (id)
 );
 
@@ -156,10 +161,9 @@ create table favorite_project
 (
    project_id           bigint unsigned not null comment '项目id',
    user_id              bigint unsigned not null comment '用户id',
-   is_deleted           tinyint not null default 0 comment '是否喜欢',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
-   UNIQUE (project_id,user_id)
+   is_deleted           tinyint unsigned not null default 0 comment '是否喜欢',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间'
 );
 
 alter table favorite_project comment '收藏项目';
@@ -171,9 +175,11 @@ create table favorite_works
 (
    works_id             bigint unsigned not null comment '作品id',
    user_id              bigint unsigned not null comment '用户id',
-   is_deleted           tinyint not null default 0 comment '是否喜欢',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间'
+   use_user_id          bigint comment '用户id',
+   use_user_id2         bigint comment '用户id',
+   is_deleted           tinyint unsigned not null default 0 comment '是否喜欢',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间'
 );
 
 alter table favorite_works comment '收藏作品';
@@ -190,9 +196,9 @@ create table order_form
    works_id             bigint unsigned comment '作品id',
    buyer_id             bigint unsigned comment '买家id',
    price                decimal comment '成交价格',
-   finish_time          timestamp comment '结束时间',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   finish_time          datetime comment '结束时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    comment              varchar(300) comment '买家评论',
    type                 tinyint unsigned not null default 0 comment '订单类型',
    primary key (id)
@@ -208,8 +214,8 @@ create table orders_complaint
    id                   bigint unsigned not null auto_increment comment '订单申诉id',
    order_id             bigint comment '订单id',
    complaint_description varchar(300) comment '申诉内容',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    primary key (id)
 );
 
@@ -225,8 +231,8 @@ create table private_message
    receiver_id          bigint comment '接收者id',
    message_type         tinyint unsigned comment '信息类型',
    message_content      varchar(300) comment '信息内容',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    status               tinyint not null default 0 comment '信息状态',
    primary key (id)
 );
@@ -242,13 +248,13 @@ create table project
    business_id          bigint comment '企业id',
    project_name         varchar(100) comment '项目名称',
    project_description  varchar(300) comment '项目描述',
-   project_status       tinyint not null default 0 comment '项目状态',
+   is_varied            tinyint unsigned not null default 0 comment '项目状态',
    budget               decimal comment '预算',
-   tender_period        timestamp comment '投标时间',
-   expected_time        timestamp comment '预计完成时间',
-   finish_time          timestamp comment '实际完成时间',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   tender_period        datetime comment '投标时间',
+   expected_time        datetime comment '预计完成时间',
+   finish_time          datetime comment '实际完成时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    primary key (id)
 );
 
@@ -264,8 +270,8 @@ create table project_attachment
    attachment_path      varchar(300) comment '附件路径',
    attachment_size      decimal comment '附件大小',
    project_id           bigint unsigned comment '项目id',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    primary key (id)
 );
 
@@ -279,8 +285,8 @@ create table project_complaint
    id                   bigint unsigned not null auto_increment comment 'id',
    project_id           bigint comment '项目id',
    complaint_description varchar(300) comment '申诉内容',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    primary key (id)
 );
 
@@ -306,8 +312,8 @@ create table resource
    resource_name        varchar(50) comment '菜单名称',
    resource_path        varchar(300) comment '菜单路径',
    pid                  varchar(50) comment '菜单父节点id',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    primary key (id)
 );
 
@@ -320,8 +326,8 @@ create table resource_role
 (
    resource_id          bigint comment '菜单id',
    role_id              bigint comment '角色id',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间'
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间'
 );
 
 alter table resource_role comment '角色与资源关系表';
@@ -333,8 +339,8 @@ create table role
 (
    id                   bigint unsigned not null auto_increment comment 'id',
    role_name            varchar(50) comment '角色名称',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    primary key (id)
 );
 
@@ -369,10 +375,10 @@ create table student
    introduction         varchar(100) comment '简介',
    transaction_time     int unsigned comment '交易总次数',
    break_time           int unsigned comment '毁约次数',
-   login_time           timestamp comment '登入时间',
+   login_time           datetime comment '登入时间',
    is_verified          tinyint not null default 0 comment '是否是第一次登入',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    follower_count       int comment '粉丝总数',
    primary key (id)
 );
@@ -389,8 +395,8 @@ create table student_attachment
    attachment_path      varchar(300) comment '附件内容',
    attachment_size      decimal comment '附件大小',
    student_id           bigint unsigned comment '学生id',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    primary key (id)
 );
 
@@ -413,10 +419,10 @@ alter table student_skill comment '学生技能表';
 create table user_relation
 (
    user_id              bigint comment '用户id',
-   follow_id            bigint comment '另一个用户id',
    relation             tinyint not null default 0 comment '两个用户关系',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间'
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
+   follow_id            bigint
 );
 
 alter table user_relation comment '用户关系表';
@@ -428,8 +434,8 @@ create table user_role
 (
    user_id              bigint not null comment '用户id',
    role_id              bigint not null comment '角色id',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    primary key (user_id)
 );
 
@@ -446,8 +452,8 @@ create table works
    works_describe       varchar(300) comment '作品描述',
    works_status         tinyint not null default 0 comment '作品状态',
    price                decimal comment '学生报价',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    primary key (id)
 );
 
@@ -463,8 +469,8 @@ create table works_attachment
    attachment_path      varchar(300) comment '附件路径',
    attachment_size      decimal comment '附件大小',
    works_id             bigint comment '作品id',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    primary key (id)
 );
 
@@ -476,10 +482,10 @@ alter table works_attachment comment '作品附件';
 create table works_comment
 (
    id                   bigint unsigned not null auto_increment comment 'id',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    works_id             bigint comment '作品id',
-   user_id 				bigint unsigned comment '评论的用户id',
+   user_id              bigint unsigned comment '评论的用户id',
    comment              varchar(300) comment '作品评论',
    primary key (id)
 );
@@ -494,122 +500,9 @@ create table works_complaint
    id                   bigint unsigned not null auto_increment comment 'id',
    works_id             bigint unsigned comment '作品id',
    complaint_description varchar(300) comment '申诉描述',
-   gmt_create           timestamp comment '创建时间',
-   gmt_modified         timestamp comment '修改时间',
+   gmt_create           datetime comment '创建时间',
+   gmt_modified         datetime comment '修改时间',
    primary key (id)
 );
 
 alter table works_complaint comment '作品申诉表';
-/*
-alter table bid add constraint FK_Reference_6 foreign key (project_id)
-      references project (id) on delete restrict on update restrict;
-
-alter table bid add constraint FK_Reference_7 foreign key (works_id)
-      references works (id) on delete restrict on update restrict;
-
-alter table business_attachment add constraint FK_Reference_23 foreign key (business_id)
-      references business (id) on delete restrict on update restrict;
-
-alter table complaint_attachment add constraint FK_Reference_26 foreign key (complaint_id)
-      references orders_complaint (id) on delete restrict on update restrict;
-
-alter table complaint_attachment add constraint FK_Reference_41 foreign key (complaint_id)
-      references works_complaint (id) on delete restrict on update restrict;
-
-alter table complaint_attachment add constraint FK_Reference_45 foreign key (complaint_id)
-      references project_complaint (id) on delete restrict on update restrict;
-
-alter table favorite_project add constraint FK_Reference_28 foreign key (user_id)
-      references user_role (user_id) on delete restrict on update restrict;
-
-alter table favorite_project add constraint FK_Reference_28 foreign key (project_id)
-      references project (id) on delete restrict on update restrict;
-
-alter table favorite_works add constraint FK_Reference_21 foreign key (user_id)
-      references user_role (user_id) on delete restrict on update restrict;
-
-alter table favorite_works add constraint FK_Reference_22 foreign key (works_id)
-      references works (id) on delete restrict on update restrict;
-
-alter table order_form add constraint FK_Reference_37 foreign key (works_id)
-      references works (id) on delete restrict on update restrict;
-
-alter table order_form add constraint FK_Reference_38 foreign key (buyer_id)
-      references business (id) on delete restrict on update restrict;
-
-alter table order_form add constraint FK_Reference_40 foreign key (project_id)
-      references project (id) on delete restrict on update restrict;
-
-alter table order_form add constraint FK_Reference_9 foreign key (seller_id)
-      references student (id) on delete restrict on update restrict;
-
-alter table orders_complaint add constraint FK_Reference_18 foreign key (order_id)
-      references order_form (id) on delete restrict on update restrict;
-
-alter table private_message add constraint FK_Reference_31 foreign key (sender_id,receiver_id )
-      references user_role (user_id, user_id) on delete restrict on update restrict;
-
-alter table project add constraint FK_Reference_29 foreign key (business_id)
-      references business (id) on delete restrict on update restrict;
-
-alter table project_attachment add constraint FK_Reference_25 foreign key (project_id)
-      references project (id) on delete restrict on update restrict;
-
-alter table project_complaint add constraint FK_Reference_44 foreign key (project_id)
-      references project (id) on delete restrict on update restrict;
-
-alter table project_skill add constraint FK_Reference_33 foreign key (skill_id)
-      references skill (id) on delete restrict on update restrict;
-
-alter table project_skill add constraint FK_Reference_35 foreign key (project_id)
-      references project (id) on delete restrict on update restrict;
-
-alter table resource_role add constraint FK_Reference_16 foreign key (role_id)
-      references role (id) on delete restrict on update restrict;
-
-alter table resource_role add constraint FK_Reference_17 foreign key (resource_id)
-      references resource (id) on delete restrict on update restrict;
-
-alter table student_attachment add constraint FK_Reference_11 foreign key (student_id)
-      references student (id) on delete restrict on update restrict;
-
-alter table student_skill add constraint FK_Reference_32 foreign key (skill_id)
-      references skill (id) on delete restrict on update restrict;
-
-alter table student_skill add constraint FK_Reference_34 foreign key (student_id)
-      references student (id) on delete restrict on update restrict;
-
-alter table student_skill add constraint FK_Reference_43 foreign key (student_id)
-      references student (id) on delete restrict on update restrict;
-
-alter table user_relation add constraint FK_Reference_20 foreign key (user_id,follow_id )
-      references user_role (user_id, user_id) on delete restrict on update restrict;
-
-alter table user_role add constraint FK_Reference_1 foreign key (user_id)
-      references student (id) on delete restrict on update restrict;
-
-alter table user_role add constraint FK_Reference_2 foreign key (role_id)
-      references role (id) on delete restrict on update restrict;
-
-alter table user_role add constraint FK_Reference_24 foreign key (user_id)
-      references administrator (id) on delete restrict on update restrict;
-
-alter table user_role add constraint FK_Reference_3 foreign key (user_id)
-      references business (id) on delete restrict on update restrict;
-
-alter table works add constraint FK_Reference_30 foreign key (student_id)
-      references student (id) on delete restrict on update restrict;
-
-alter table works_attachment add constraint FK_Reference_27 foreign key (works_id)
-      references works (id) on delete restrict on update restrict;
-
-alter table works_comment add constraint FK_Reference_36 foreign key (works_id)
-      references works (id) on delete restrict on update restrict;
-
-alter table works_comment add constraint FK_Reference_36 foreign key (user_id)
-      references user_role (user_id) on delete restrict on update restrict;
-      
-alter table works_complaint add constraint FK_Reference_39 foreign key (works_id)
-      references works (id) on delete restrict on update restrict;
-
-*/
