@@ -7,7 +7,7 @@
 /* Database：artMuseum                                        */
 /*==============================================================*/
 create Database if not exists artMuseum character set utf8;
-use artMuseum
+use artMuseum;
 
 
 drop table if exists administrator;
