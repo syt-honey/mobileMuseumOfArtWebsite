@@ -68,6 +68,25 @@ CREATE TABLE `business`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '企业信息表' ROW_FORMAT = Dynamic;
 
+
+
+-- ----------------------------
+-- Table structure for email_activation
+-- ----------------------------
+DROP TABLE IF EXISTS `email_activation`;
+CREATE TABLE `email_activation`  (
+  `id` bigint(20) UNSIGNED NOT NULL COMMENT '编号',
+  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '邮箱',
+  `state` tinyint(3) NOT NULL DEFAULT 0 COMMENT '激活状态',
+  `token` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '激活令牌',
+  `token_expried_time` datetime(0) NULL DEFAULT NULL COMMENT '令牌过期时间',
+  `gmt_registered` datetime(0) NULL DEFAULT NULL COMMENT '注册时间',
+  `gmt_activated` datetime(0) NULL DEFAULT NULL COMMENT '激活时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '邮箱验证表' ROW_FORMAT = Dynamic;
+
+
+
 -- ----------------------------
 -- Table structure for business_attachment
 -- ----------------------------

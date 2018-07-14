@@ -20,5 +20,11 @@ The Art Exchange platform between students and enterprises
 
 <br>
 
+更详细信息，请查看：[项目跟进文档](https://github.com/mobileArtMuseumY/MuseumOfArtWebsite/blob/master/%E9%A1%B9%E7%9B%AE%E8%B7%9F%E8%BF%9B%E6%96%87%E6%A1%A3.md)
 
-更详细信息，请查看:[项目跟进文档](https://github.com/mobileArtMuseumY/MuseumOfArtWebsite/blob/master/%E9%A1%B9%E7%9B%AE%E8%B7%9F%E8%BF%9B%E6%96%87%E6%A1%A3.md)
+<br>
+
+知识分享文档，请查看：[思想大碰撞](https://github.com/mobileArtMuseumY/MuseumOfArtWebsite/tree/master/knowledge_sharing_doc)
+
+<br>
+<br>
