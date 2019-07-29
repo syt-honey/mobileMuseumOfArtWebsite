@@ -1,4 +1,3 @@
-# mobileMuseumOfArtWebsite
 
 The Art Exchange platform between students and enterprises  
 ---
@@ -32,46 +31,43 @@ The Art Exchange platform between students and enterprises
 ![登录](/picture/登录.png)
 
 学生第一次登录：
-![学生第一次登录]()
+![学生第一次登录](/picture/学生第一次登录.png)
 
 注册：
-![注册]()
+![注册](/picture/signup.png)
 
 浏览项目列表：
-![浏览项目列表]()
+![浏览项目列表](/picture/浏览项目列表.png)
 
 人才排行榜：
-![人才排行榜]()
+![人才排行榜](/picture/人才排行榜.png)
 
 发现：
-![发现]()
+![发现](/picture/发现.png)
 
 #### 私有页面
 
 个人首页(学生)：
-![个人首页]()
+![个人首页](/picture/homepage.png)
 
 学生上传作品：
-![上传作品]()
+![上传作品](/picture/上传作品.png)
 
 学生投标：
-![投标]()
+![投标](/picture/投标.png)  
 
 企业发布项目：
-![发布项目]()
+![发布项目](/picture/发布项目.png)
 
 企业选标：
-![选标]()
+![选标](/picture/选标1.png)
+![选标](/picture/选标2.png)
 
 支付：
-![支付]()
-
-### 后台管理系统
+![支付](/picture/支付.png)
 
 
-
-
-更详细信息，请查看：[项目跟进文档](/项目跟进文档.md)
+更详细信息，请查看：[项目跟进文档](/项目跟进文档.md)  
 项目代码：
-* [前端代码]()
-* [后端代码]()
+* [前端代码](https://github.com/mobileArtMuseumY/Front-endImplementation)
+* [后端代码](https://github.com/mobileArtMuseumY/Back-endImplementation)
