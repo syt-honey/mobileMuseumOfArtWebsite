@@ -23,47 +23,47 @@ The Art Exchange platform between students and enterprises
 
 ### 前台项目界面预览
 
-#### 公共页面(不需要token即可访问的页面)
-首页：
+#### 公共页面(不需要token即可访问的页面)  
+首页：  
 ![首页](/picture/首页.png)
 
-登录：
+登录：  
 ![登录](/picture/登录.png)
 
-学生第一次登录：
+学生第一次登录：  
 ![学生第一次登录](/picture/学生第一次登录.png)
 
-注册：
+注册：  
 ![注册](/picture/signup.png)
 
-浏览项目列表：
+浏览项目列表：  
 ![浏览项目列表](/picture/浏览项目列表.png)
 
-人才排行榜：
+人才排行榜：  
 ![人才排行榜](/picture/人才排行榜.png)
 
-发现：
+发现：  
 ![发现](/picture/发现.png)
 
 #### 私有页面
 
-个人首页(学生)：
+个人首页(学生)：  
 ![个人首页](/picture/homepage.png)
 
-学生上传作品：
+学生上传作品：  
 ![上传作品](/picture/上传作品.png)
 
-学生投标：
+学生投标：  
 ![投标](/picture/投标.png)  
 
-企业发布项目：
+企业发布项目：  
 ![发布项目](/picture/发布项目.png)
 
-企业选标：
+企业选标：  
 ![选标](/picture/选标1.png)
 ![选标](/picture/选标2.png)
 
-支付：
+支付：  
 ![支付](/picture/支付.png)
 
 
