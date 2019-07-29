@@ -1,13 +1,11 @@
 # mobileMuseumOfArtWebsite
 
-The Art Exchange platform between students and enterprises   
-<br>
+The Art Exchange platform between students and enterprises  
+---
 
-### 系统介绍
+### 系统介绍(带有后台管理系统)
 
 该系统是基于SSM基础框架前后端分离设计主要用来给学生提供一个与企业交易的一个平台。企业可注册网站，将自己的设计需求发布到网站上，学生搜索自己感兴趣的设计，向企业投稿，企业选择投稿进行交易。学生还可以在自己的个人界面上传自己的作品，展示出来。
-
-<br> 
 
 ### 前端项目工具及版本  
 * 开发工具: vscode
@@ -24,8 +22,56 @@ The Art Exchange platform between students and enterprises
 * Tomcat: 9
 * MYSQL: 5.7.22
 
-<br>
+### 前台项目界面预览
 
-更详细信息，请查看：[项目跟进文档](https://github.com/mobileArtMuseumY/MuseumOfArtWebsite/blob/master/%E9%A1%B9%E7%9B%AE%E8%B7%9F%E8%BF%9B%E6%96%87%E6%A1%A3.md)
+#### 公共页面(不需要token即可访问的页面)
+首页：
+![首页](/picture/首页.png)
 
-<br>
+登录：
+![登录](/picture/登录.png)
+
+学生第一次登录：
+![学生第一次登录]()
+
+注册：
+![注册]()
+
+浏览项目列表：
+![浏览项目列表]()
+
+人才排行榜：
+![人才排行榜]()
+
+发现：
+![发现]()
+
+#### 私有页面
+
+个人首页(学生)：
+![个人首页]()
+
+学生上传作品：
+![上传作品]()
+
+学生投标：
+![投标]()
+
+企业发布项目：
+![发布项目]()
+
+企业选标：
+![选标]()
+
+支付：
+![支付]()
+
+### 后台管理系统
+
+
+
+
+更详细信息，请查看：[项目跟进文档](/项目跟进文档.md)
+项目代码：
+* [前端代码]()
+* [后端代码]()
